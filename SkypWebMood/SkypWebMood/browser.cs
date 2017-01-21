@@ -19,6 +19,7 @@ namespace SkypWebMood
         {
             InitializeComponent();
             InitBrowser();
+            button2.Dock = DockStyle.Top;
         }
 
         public ChromiumWebBrowser prohlizec;
@@ -33,6 +34,24 @@ namespace SkypWebMood
         private void button1_Click(object sender, EventArgs e)
         {
             prohlizec.Load(textBox1.Text);
+        }
+        int showing = 1;
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (showing == 1) {
+                textBox1.Visible = false;
+                button1.Visible = false;
+                button2.Dock = DockStyle.None;
+                button2.Text = "Show";
+                showing = 0;
+            } else
+            {
+                textBox1.Visible = true;
+                button1.Visible = true;
+                button2.Dock = DockStyle.Top;
+                button2.Text = "Hide";
+                showing = 1;
+            }
         }
     }
 }
